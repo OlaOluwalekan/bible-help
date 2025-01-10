@@ -5,6 +5,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --paper-color: #f1ede9;
+  --paper-line: #94acd4;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,4 +20,40 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .perspective {
+    perspective: 1000px;
+  }
+
+  .transform-style-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+
+  .rotate-y-0 {
+    transform: rotateY(0deg);
+  }
+
+  .rotate-y--180 {
+    transform: rotateY(-180deg);
+  }
+
+  .paperBg {
+    background: repeating-linear-gradient(
+      var(--paper-color),
+      var(--paper-color) 15px,
+      var(--paper-line) 15px,
+      var(--paper-line) 16px
+    );
+    font-family: 'Shadows Into Light', cursive;
+  }
+
+  .paperShadow {
+    box-shadow: 10px 10px 40px rgba(black, 0.15);
+  }
 }
